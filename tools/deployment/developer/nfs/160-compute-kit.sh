@@ -43,7 +43,7 @@ fi
 tee /tmp/neutron.yaml << EOF
 network:
   interface:
-    tunnel: docker0
+    tunnel: "${NETWORK_TUNNEL_DEV}"
 conf:
   neutron:
     DEFAULT:

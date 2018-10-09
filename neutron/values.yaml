@@ -1557,6 +1557,8 @@ conf:
         l2_population: True
         arp_responder: True
       ovs:
+        integration_bridge: br-int
+        tunnel_bridge: br-tun
         bridge_mappings: "external:br-ex"
       securitygroup:
         firewall_driver: neutron.agent.linux.iptables_firewall.OVSHybridIptablesFirewallDriver
