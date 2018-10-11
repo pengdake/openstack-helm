@@ -26,17 +26,18 @@ function start () {
     cp -a $(type -p ${KEYSTONE_WSGI_SCRIPT}) /var/www/cgi-bin/keystone/
   done
 
-  if [ -f /etc/apache2/envvars ]; then
+  #if [ -f /etc/apache2/envvars ]; then
      # Loading Apache2 ENV variables
-     source /etc/apache2/envvars
-  fi
+  #   source /etc/apache2/envvars
+  #fi
 
   # Start Apache2
-  exec apache2 -DFOREGROUND
+  exec httpd -DFOREGROUND
 }
 
 function stop () {
-  apachectl -k graceful-stop
+  httpd -k graceful-stop
 }
+echo $COMMAND
 
 $COMMAND

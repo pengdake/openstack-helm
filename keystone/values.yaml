@@ -32,16 +32,16 @@ images:
     bootstrap: docker.io/openstackhelm/heat:newton
     test: docker.io/kolla/ubuntu-source-rally:4.0.0
     db_init: docker.io/openstackhelm/heat:newton
-    keystone_db_sync: docker.io/openstackhelm/keystone:newton
+    keystone_db_sync: 192.168.8.167:5000/openstack/keystone:rock
     db_drop: docker.io/openstackhelm/heat:newton
     ks_user: docker.io/openstackhelm/heat:newton
     rabbit_init: docker.io/rabbitmq:3.7-management
-    keystone_fernet_setup: docker.io/openstackhelm/keystone:newton
-    keystone_fernet_rotate: docker.io/openstackhelm/keystone:newton
-    keystone_credential_setup: docker.io/openstackhelm/keystone:newton
-    keystone_credential_rotate: docker.io/openstackhelm/keystone:newton
-    keystone_api: docker.io/openstackhelm/keystone:newton
-    keystone_domain_manage: docker.io/openstackhelm/keystone:newton
+    keystone_fernet_setup: 192.168.8.167:5000/openstack/keystone:rock
+    keystone_fernet_rotate: 192.168.8.167:5000/openstack/keystone:rock
+    keystone_credential_setup: 192.168.8.167:5000/openstack/keystone:rock
+    keystone_credential_rotate: 192.168.8.167:5000/openstack/keystone:rock
+    keystone_api: 192.168.8.167:5000/openstack/keystone:rock
+    keystone_domain_manage: 192.168.8.167:5000/openstack/keystone:rock
     dep_check: quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     image_repo_sync: docker.io/docker:17.07.0
   pull_policy: "IfNotPresent"

@@ -102,11 +102,11 @@ spec:
             subPath: sso_callback_template.html
             readOnly: true
           - name: keystone-etc
-            mountPath: /etc/apache2/conf-enabled/wsgi-keystone.conf
+            mountPath: /etc/httpd/conf.d/wsgi-keystone.conf
             subPath: wsgi-keystone.conf
             readOnly: true
           - name: keystone-etc
-            mountPath: /etc/apache2/mods-available/mpm_event.conf
+            mountPath: /etc/httpd/conf.modules.d/mpm_event.conf
             subPath: mpm_event.conf
             readOnly: true
           - name: keystone-bin
