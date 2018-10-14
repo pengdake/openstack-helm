@@ -41,14 +41,14 @@ images:
     test: docker.io/kolla/ubuntu-source-rally:4.0.0
     glance_storage_init: docker.io/port/ceph-config-helper:v1.10.3
     db_init: docker.io/openstackhelm/heat:newton
-    glance_db_sync: docker.io/openstackhelm/glance:newton
+    glance_db_sync: 192.168.8.167:5000/openstack/glance-centos:rocky
     db_drop: docker.io/openstackhelm/heat:newton
     ks_user: docker.io/openstackhelm/heat:newton
     ks_service: docker.io/openstackhelm/heat:newton
     ks_endpoints: docker.io/openstackhelm/heat:newton
     rabbit_init: docker.io/rabbitmq:3.7-management
-    glance_api: docker.io/openstackhelm/glance:newton
-    glance_registry: docker.io/openstackhelm/glance:newton
+    glance_api: 192.168.8.167:5000/openstack/glance-centos:rocky
+    glance_registry: 192.168.8.167:5000/openstack/glance-centos:rocky
     # Bootstrap image requires curl
     bootstrap: docker.io/openstackhelm/heat:newton
     dep_check: quay.io/stackanetes/kubernetes-entrypoint:v0.3.1

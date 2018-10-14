@@ -42,19 +42,19 @@ labels:
 images:
   tags:
     test: docker.io/kolla/ubuntu-source-rally:4.0.0
-    bootstrap: docker.io/openstackhelm/heat:newton
-    db_init: docker.io/openstackhelm/heat:newton
-    heat_db_sync: docker.io/openstackhelm/heat:newton
-    db_drop: docker.io/openstackhelm/heat:newton
+    bootstrap: 192.168.8.167:5000/openstack/heat-centos:rocky
+    db_init: 192.168.8.167:5000/openstack/heat-centos:rocky
+    heat_db_sync: 192.168.8.167:5000/openstack/heat-centos:rocky
+    db_drop: 192.168.8.167:5000/openstack/heat-centos:rocky
     rabbit_init: docker.io/rabbitmq:3.7-management
-    ks_user: docker.io/openstackhelm/heat:newton
-    ks_service: docker.io/openstackhelm/heat:newton
-    ks_endpoints: docker.io/openstackhelm/heat:newton
-    heat_api: docker.io/openstackhelm/heat:newton
-    heat_cfn: docker.io/openstackhelm/heat:newton
-    heat_cloudwatch: docker.io/openstackhelm/heat:newton
-    heat_engine: docker.io/openstackhelm/heat:newton
-    heat_engine_cleaner: docker.io/openstackhelm/heat:newton
+    ks_user: 192.168.8.167:5000/openstack/heat-centos:rocky
+    ks_service: 192.168.8.167:5000/openstack/heat-centos:rocky
+    ks_endpoints: 192.168.8.167:5000/openstack/heat-centos:rocky
+    heat_api: 192.168.8.167:5000/openstack/heat-centos:rocky
+    heat_cfn: 192.168.8.167:5000/openstack/heat-centos:rocky
+    heat_cloudwatch: 192.168.8.167:5000/openstack/heat-centos:rocky
+    heat_engine: 192.168.8.167:5000/openstack/heat-centos:rocky
+    heat_engine_cleaner: 192.168.8.167:5000/openstack/heat-centos:rocky
     dep_check: quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     image_repo_sync: docker.io/docker:17.07.0
   pull_policy: "IfNotPresent"
