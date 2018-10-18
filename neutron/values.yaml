@@ -143,31 +143,11 @@ dependencies:
             service: local_image_registry
     targeted:
       openvswitch:
-        dhcp:
-          pod:
-            - requireSameNode: true
-              labels:
-                application: neutron
-                component: neutron-ovs-agent
-        l3:
-          pod:
-            - requireSameNode: true
-              labels:
-                application: neutron
-                component: neutron-ovs-agent
-        metadata:
-          pod:
-            - requireSameNode: true
-              labels:
-                application: neutron
-                component: neutron-ovs-agent
+        dhcp: nil
+        l3: nil
+        metadata: nil
       linuxbridge:
-        dhcp:
-          pod:
-            - requireSameNode: true
-              labels:
-                application: neutron
-                component: neutron-lb-agent
+        dhcp: nil
         l3:
           pod:
             - requireSameNode: true

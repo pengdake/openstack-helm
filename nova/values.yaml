@@ -221,12 +221,7 @@ dependencies:
             service: local_image_registry
     targeted:
       openvswitch:
-        compute:
-          pod:
-            - requireSameNode: true
-              labels:
-                application: neutron
-                component: neutron-ovs-agent
+        compute: nil
       linuxbridge:
         compute:
           pod:
