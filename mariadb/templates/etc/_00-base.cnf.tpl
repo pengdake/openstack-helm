@@ -75,11 +75,9 @@ table_definition_cache=1024
 # TODO(tomasz.paszkowski): This needs to by dynamic based on available RAM.
 innodb_buffer_pool_size=1024M
 innodb_doublewrite=0
-innodb_file_format=Barracuda
 innodb_file_per_table=1
 innodb_flush_method=O_DIRECT
 innodb_io_capacity=500
-innodb_locks_unsafe_for_binlog=1
 innodb_log_file_size=128M
 innodb_old_blocks_time=1000
 innodb_read_io_threads=8
@@ -95,8 +93,9 @@ wsrep_on=1
 wsrep_provider=/usr/lib/galera/libgalera_smm.so
 wsrep_provider_options="gmcast.listen_addr=tcp://0.0.0.0:{{ tuple "oslo_db" "direct" "wsrep" . | include "helm-toolkit.endpoints.endpoint_port_lookup" }}"
 wsrep_slave_threads=12
+# FIX_ME(portdirect): https://mariadb.com/kb/en/library/mariabackup-overview/#granting-privileges-for-ssts
 wsrep_sst_auth=root:{{ .Values.endpoints.oslo_db.auth.admin.password }}
-wsrep_sst_method=xtrabackup-v2
+wsrep_sst_method=mariabackup
 
 [mysqldump]
 max-allowed-packet=16M

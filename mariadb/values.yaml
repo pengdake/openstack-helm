@@ -21,10 +21,7 @@ release_group: null
 
 images:
   tags:
-    # NOTE: if you update from 10.2.13 please look at
-    # https://review.openstack.org/#/q/Ifd09d7effe7d382074ca9e6678df36bdd4bce0af
-    # and check whether it's still needed
-    mariadb: docker.io/mariadb:10.2.13
+    mariadb: docker.io/openstackhelm/mariadb:10.2.18
     ingress: quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.9.0
     error_pages: gcr.io/google_containers/defaultbackend:1.0
     prometheus_create_mysql_user: docker.io/mariadb:10.2.13
@@ -61,8 +58,8 @@ pod:
       topologyKey:
         default: kubernetes.io/hostname
   replicas:
-    server: 1
-    ingress: 1
+    server: 3
+    ingress: 2
     error_page: 1
     prometheus_mysql_exporter: 1
   lifecycle:
@@ -166,10 +163,8 @@ force_bootstrap: false
 volume:
   chown_on_start: true
   enabled: true
-  class_name: dynamic-ceph-rdb
+  class_name: general
   size: 5Gi
-
-
 
 conf:
   ingress: null
@@ -264,6 +259,27 @@ endpoints:
         default: 3306
       wsrep:
         default: 4567
+  kube_dns:
+    namespace: kube-system
+    name: kubernetes-dns
+    hosts:
+      default: kube-dns
+    host_fqdn_override:
+      default: null
+    path:
+      default: null
+    scheme: http
+    port:
+      dns_tcp:
+        default: 53
+      dns:
+        default: 53
+        protocol: UDP
+
+network_policy:
+  mariadb:
+    ingress:
+      - {}
 
 manifests:
   configmap_bin: true
@@ -280,6 +296,7 @@ manifests:
       secret_etc: true
       service_exporter: true
   pdb_server: true
+  network_policy: false
   secret_db: true
   secret_etc: true
   service_discovery: true

@@ -33,20 +33,19 @@ if ! $MYSQL -e 'select 1' > /dev/null 2>&1 ; then
     exit 1
 fi
 
-if [ "x$(mysql_status_query wsrep_cluster_status)" != "xPrimary" ]; then
-    # Not in primary cluster
+if [ "x$(mysql_status_query wsrep_ready)" != "xON" ]; then
+    # WSREP says the node can receive queries
     exit 1
 fi
-if [ "x$(mysql_status_query wsrep_ready)" != "xON" ]; then
-    # WSREP not ready
+if [ "x$(mysql_status_query wsrep_connected)" != "xON" ]; then
+    # WSREP connected
+    exit 1
+fi
+if [ "x$(mysql_status_query wsrep_cluster_status)" != "xPrimary" ]; then
+    # Not in primary cluster
     exit 1
 fi
 if [ "x$(mysql_status_query wsrep_local_state_comment)" != "xSynced" ]; then
     # WSREP not synced
     exit 1
-fi
-
-# If we made it this far, its safe to remove the bootstrap file if present
-if [ -e ${BOOTSTRAP_FILE} ]; then
-  rm -f ${BOOTSTRAP_FILE}
 fi
