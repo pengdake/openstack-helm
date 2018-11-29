@@ -731,7 +731,7 @@ conf:
       enabled_backends: "rbd1"
       # NOTE(portdirect): "cinder.backup.drivers.ceph"  and
       # "cinder.backup.drivers.posix" also supported
-      backup_driver: "cinder.backup.drivers.swift"
+      backup_driver: "cinder.backup.drivers.ceph"
       # Backup: Ceph RBD options
       backup_ceph_conf: "/etc/ceph/ceph.conf"
       backup_ceph_user: cinderbackup

@@ -20,6 +20,7 @@ set -ex
 COMMAND="${@:-start}"
 
 function start () {
+  chmod o+r /usr/share/cinder/cinder-dist.conf
   exec cinder-api \
         --config-file /etc/cinder/cinder.conf
 }

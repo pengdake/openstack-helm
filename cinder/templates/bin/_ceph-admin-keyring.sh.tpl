@@ -24,7 +24,7 @@ cat <<EOF > /etc/ceph/ceph.client.admin.keyring
 {{- if .Values.conf.ceph.admin_keyring }}
     key = {{ .Values.conf.ceph.admin_keyring }}
 {{- else }}
-    key = $(cat /tmp/client-keyring)
+    key = $(cat /tmp/client-keyring | grep key | awk '{print $3}')
 {{- end }}
 EOF
 
