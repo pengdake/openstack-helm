@@ -1013,8 +1013,8 @@ conf:
   neutron_sudoers: |
     # This sudoers file supports rootwrap for both Kolla and LOCI Images.
     Defaults !requiretty
-    Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin:/var/lib/openstack/bin:/var/lib/kolla/venv/bin"
-    neutron ALL = (root) NOPASSWD: /var/lib/kolla/venv/bin/neutron-rootwrap /etc/neutron/rootwrap.conf *, /var/lib/openstack/bin/neutron-rootwrap /etc/neutron/rootwrap.conf *
+    Defaults secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+    neutron ALL = (root) NOPASSWD: /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf *, /usr/bin/neutron-rootwrap-daemon /etc/neutron/rootwrap.conf
   rootwrap: |
     # Configuration for neutron-rootwrap
     # This file should be owned by (and only-writeable by) the root user
@@ -1028,7 +1028,7 @@ conf:
     # explicitely specify a full path (separated by ',')
     # If not specified, defaults to system PATH environment variable.
     # These directories MUST all be only writeable by root !
-    exec_dirs=/sbin,/usr/sbin,/bin,/usr/bin,/usr/local/bin,/usr/local/sbin,/var/lib/openstack/bin,/var/lib/kolla/venv/bin
+    exec_dirs=/sbin,/usr/sbin,/bin,/usr/bin,/usr/local/bin,/usr/local/sbin
 
     # Enable logging to syslog
     # Default value is False
@@ -1462,7 +1462,7 @@ conf:
     database:
       max_retries: -1
     agent:
-      root_helper: sudo /var/lib/openstack/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
+      root_helper: sudo /usr/bin/neutron-rootwrap /etc/neutron/rootwrap.conf
     oslo_messaging_notifications:
       driver: messagingv2
     nova:
