@@ -29,19 +29,19 @@ release_group: null
 
 images:
   tags:
-    bootstrap: docker.io/openstackhelm/heat:newton
+    bootstrap: 192.168.8.56/openstack-rocky/heat-centos
     test: docker.io/kolla/ubuntu-source-rally:4.0.0
-    db_init: docker.io/openstackhelm/heat:newton
-    keystone_db_sync: docker.io/openstackhelm/keystone:newton
-    db_drop: docker.io/openstackhelm/heat:newton
-    ks_user: docker.io/openstackhelm/heat:newton
+    db_init: 192.168.8.56/openstack-rocky/heat-centos
+    keystone_db_sync: 192.168.8.56/openstack-rocky/keystone-centos
+    db_drop: 192.168.8.56/openstack-rocky/heat-centos
+    ks_user: 192.168.8.56/openstack-rocky/heat-centos
     rabbit_init: docker.io/rabbitmq:3.7-management
-    keystone_fernet_setup: docker.io/openstackhelm/keystone:newton
-    keystone_fernet_rotate: docker.io/openstackhelm/keystone:newton
-    keystone_credential_setup: docker.io/openstackhelm/keystone:newton
-    keystone_credential_rotate: docker.io/openstackhelm/keystone:newton
-    keystone_api: docker.io/openstackhelm/keystone:newton
-    keystone_domain_manage: docker.io/openstackhelm/keystone:newton
+    keystone_fernet_setup: 192.168.8.56/openstack-rocky/keystone-centos
+    keystone_fernet_rotate: 192.168.8.56/openstack-rocky/keystone-centos
+    keystone_credential_setup: 192.168.8.56/openstack-rocky/keystone-centos
+    keystone_credential_rotate: 192.168.8.56/openstack-rocky/keystone-centos
+    keystone_api: 192.168.8.56/openstack-rocky/keystone-centos
+    keystone_domain_manage: 192.168.8.56/openstack-rocky/keystone-centos
     dep_check: quay.io/stackanetes/kubernetes-entrypoint:v0.3.1
     image_repo_sync: docker.io/docker:17.07.0
   pull_policy: "IfNotPresent"
